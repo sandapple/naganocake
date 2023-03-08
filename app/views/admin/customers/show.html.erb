@@ -1,0 +1,8 @@
+<h1>会員詳細</h1>
+<p><%= @customer.name %></p>
+<p><%= @customer.introduction %></p>
+<p><%= @customer.genre_id %></p>
+<p><%= @customer.price %></p>
+<p><%= @customer.is_active %></p>
+
+<%= link_to "編集する", edit_admin_customer_path(@customers.id) %></td>

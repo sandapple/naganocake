@@ -1,0 +1,28 @@
+<h1>商品編集</h1>
+<div>
+<table class="table">
+<%= form_with model: @item, url: admin_item_path(@item.id), method: :patch do |f| %>
+<tr>
+ <th><label for="inputImage"商品画像</label></th>
+  <td><%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*"%></td>
+</tr>
+<tr>
+  <th><label for="inputName">商品名</label></th>
+  <td><%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"商品名", size: "40"%></td>
+</tr>
+<tr>
+  <th><label for="inputintroduction">商品説明</label></th>
+  <td><%= f.text_field :introduction, placeholder: "商品説明", size: "50" %></td>
+</tr>
+<tr>
+   <th><label for="inputGenre">ジャンル</label></th>
+  <td><%= f.select :genre_id, {'ケーキ': 1, 'タルト': 2, 'プリン': 3}, { include_blank:'--選択してください--'},{ class: 'form-control' , required: true }  %></td>
+</tr>
+<tr>
+ <th> <label for="inputPrice">税抜価格</label></th>
+ <td><%= f.text_field :price, placeholder:"1000" %></td>
+</tr>
+  <td><%= f.submit "変更を保存" %></td>
+  <% end %>
+  </div>
+  </table>
