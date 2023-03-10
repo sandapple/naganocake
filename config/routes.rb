@@ -16,10 +16,8 @@ devise_for :customers,skip: [:passwords], controllers: {
   sessions: 'public/sessions'
 }
 
-#devise_for :admins, skip: [:registrations, :passwords] ,controllers: {
-  #sessions: "admin/sessions"
-#}
-devise_for :admin, controllers: {
+devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
+
 end
