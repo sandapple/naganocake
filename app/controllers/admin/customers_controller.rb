@@ -4,9 +4,7 @@ class Admin::CustomersController < ApplicationController
   end
 
   def show
-    # コメントアウトすれば変数のところは見える。
-    #まずは会員のログイン画面作る
-    # @customer = Customer.find(params[:id])
+    @customer = Customer.find(params[:id])
   end
 
   def edit
