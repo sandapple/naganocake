@@ -1,0 +1,22 @@
+<h2>マイページ</h2>
+
+<h3>登録する</h3>
+<table class="table">
+ <thead>
+<tr><th>氏名</th>
+<th>カナ</th>
+<th>郵便番号</th>
+<th>住所</th>
+<th>電話番号</th>
+<th>メールアドレス</th>
+</tr>
+ </thead>
+<tr>
+   <td><%= @customer.last_name %></td>
+   <td><%= @customer.last_name_kana %></td>
+   <td><%= @customer.postal_code %></td>
+   <td><%= @customer.address %></td>
+   <td><%= @customer.telephone_number %></td>
+   <td><%= @customer.email %></td>
+ </tr>
+</table>
