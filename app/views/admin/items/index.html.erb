@@ -2,7 +2,9 @@
 
 <table class="table">
  <thead>
-<tr><th>商品id</th>
+<div>
+<tr><th>商品画像</th>
+<th>商品id</th>
 <th>商品名</th>
 <th>税抜価格</th>
 <th>ジャンル</th>
@@ -11,11 +13,15 @@
  </thead>
 <% @items.each do |items| %>
 <tr>
+ <% if items.image.attached? %>
+ <td><%= image_tag items.image, size: "50x50" %></td>
+ <% end %>
  <td><%= items.genre_id %></td>
  <td><%= items.name %></td>
   <td><%= items.price %></td>
-  <td><%= items.genre %></td>
+  <td><%= items.genre.name %></td>
   <td><%= items.is_active %></td>
  </tr>
 <% end %>
 </table>
+</div>

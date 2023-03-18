@@ -4,17 +4,16 @@
  <thead>
 <tr><th>会員id</th>
 <th>氏名</th>
-<th>アドレス</th>
-<th>ジャンル</th>
+<th>メールアドレス</th>
 <th>ステータス</th>
 </tr>
  </thead>
 <% @customers.each do |customers| %>
 <tr>
- <td><%= customers._id %></td>
- <td><%= items.name %></td>
-  <td><%= items.genre %></td>
-  <td><%= items.is_active %></td>
+ <td><%= customers.id %></td>
+ <td><%= customers.last_name + customers.first_name %></td>
+  <td><%= customers.address %></td>
+  <td><%= customers.is_deleted %></td>
  </tr>
 <% end %>
 </table>

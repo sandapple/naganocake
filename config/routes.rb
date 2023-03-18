@@ -26,6 +26,6 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
       get 'homes/about'
       resource :customers, only:[:show, :edit, :update]
       resources :items, only:[:index, :show]
-      resources :cart_items, omly
+      resources :cart_items, only:[:index, :update, :create, :destroy, :destroy_all]
   end
 end
