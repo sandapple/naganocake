@@ -1,8 +1,43 @@
 <h1>会員詳細</h1>
-<p><%= @customer.name %></p>
-<p><%= @customer.introduction %></p>
-<p><%= @customer.genre_id %></p>
-<p><%= @customer.price %></p>
-<p><%= @customer.is_active %></p>
+<table class="table">
+<tr>
+<th><label for="inputId">id</label></th>
+<td><%= @customer.id %></td>
+</tr>
+<tr>
+<th><label for="inputName">氏名</label></th>
+<td><%= @customer.last_name %> <%= @customer.first_name %></td>
+</tr>
+<tr>
+<th><label for="inputPostal_code">郵便番号</label></th>
+<td><%= @customer.postal_code %></td>
+</tr>
+<tr>
+<th><label for="inputAddress">住所</label></th>
+<td><%= @customer.address %></td>
+</tr>
+<tr>
+<th><label for="inputTelephone_number">電話番号</label></th>
+<td><%= @customer.telephone_number %></td>
+</tr>
+<tr>
+<th><label for="inputEmail">メールアドレス</label></th>
+<td><%= @customer.email %></td>
+</tr>
+<tr>
+<th><label for="inputEmail">会員ステータス</label></th>
+<td><% if @customer.is_deleted %></td>
+<td>有効</td>
 
-<%= link_to "編集する", edit_admin_customer_path(@customers.id) %></td>
+<% else %>
+
+<td>退会</td>
+
+<% end %>
+</tr>
+
+
+
+<td><%= link_to "編集する", edit_admin_customer_path(@customer.id) %></td>
+
+</table>

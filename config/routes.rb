@@ -24,7 +24,11 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   scope module: :public do
       get 'homes/top'
       get 'homes/about'
-      resource :customers, only:[:show, :edit, :update]
+      get "/customers/my_page", to: 'customers#show', as: :my_page_customers
+      get "/customers/informaition/edit", to: 'customers#edit',as: :edit_customers
+      get 'customers', to: 'customers#unsubscribe',as: :unsubscribe_customers
+      patch 'customers', to: 'customers#withdraw'
+      patch 'customers_update' , to: 'customers#update',as: :update_customers
       resources :items, only:[:index, :show]
       resources :cart_items, only:[:index, :update, :create, :destroy, :destroy_all]
   end

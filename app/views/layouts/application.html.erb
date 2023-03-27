@@ -21,77 +21,88 @@
       <div class="navbar-collapse collapse" id="navbarNavDropdown" style="">
         <ul class="navbar-nav ml-auto">
           <!--顧客側-->
-          <!--urlの修正-->
           <% if customer_signed_in? %>
-          <li>
-            <tr><%= link_to customers_url,class:"nav-link text-light" do %>
+           <table class="table">
+           <tr>
+           <td>
+            <%= link_to customers_url,class:"nav-link text-light" do %>
             <i class="fas fa-home"></i> マイページ
             <% end %>
-          </li>
-          <li>
-            <tr><%= link_to items_url,class:"nav-link text-light" do %>
+           </td>
+           <td>
+            <%= link_to items_url,class:"nav-link text-light" do %>
             <i class="fas fa-home"></i> 商品一覧
             <% end %>
-          </li>
-          <li>
-            <tr><%= link_to cart_items_url,class:"nav-link text-light" do %>
+           </td>
+           <td>
+            <%= link_to cart_items_url,class:"nav-link text-light" do %>
             <i class="fas fa-home"></i> カート
             <% end %>
-          </li>
-          <li>
-            <tr><%= link_to destroy_customer_session_url,method: :delete, class:"nav-link text-light" do %>
+           </td>
+           <td>
+            <%= link_to destroy_customer_session_url,method: :delete, class:"nav-link text-light" do %>
             <i class="fas fa-home"></i> ログアウト
             <% end %>
-          </li>
+           </td>
+          </tr>
+          </table>
           <!--管理者側-->
           <% elsif admin_signed_in? %>
-          <li>
-            <tr><%= link_to admin_items_url,class:"nav-link text-light" do %>
+          <table class="table">
+        <tr>
+          <td>
+            <%= link_to admin_items_url,class:"nav-link text-light" do %>
             <i class="fas fa-home"></i> 商品一覧
             <% end %>
-          </li>
-          <li>
+          </td>
+          <td>
              <%= link_to  admin_customers_url ,class:"nav-link text-light" do %>
             <i class="fas fa-link"></i> 会員一覧
              <% end %>
-         </li>
-          <li>
+         </td>
+          <td>
              <%= link_to admin_homes_top_url,class:"nav-link text-light" do %>
             <i class="fas fa-user-plus"></i> 注文履歴
              <% end %>
-          </li>
-          <li>
+          </td>
+          <td>
             <%= link_to admin_genres_url,class:"nav-link text-light" do %>
           <i class="fas fa-sign-in-alt"></i> ジャンル一覧
             <% end %>
-          </li>
-          <li>
+          </td>
+          <td>
             <%= link_to destroy_admin_session_url,method: :delete, class:"nav-link text-light" do %>
           <i class="fas fa-sign-in-alt"></i> ログアウト
             <% end %>
-          </li>
+          </td>
+        </tr>
+      </table>
           <% else %>
-          <li>
+      <table class="table">
+        <tr>
+          <td>
             <%= link_to homes_about_path do %>
            <i class="fas fa-home"></i> About
             <% end %>
-          </li>
-          <li>
+          </td>
+          <td>
                <%= link_to items_path,class:"nav-link text-light" do %>
                <i class="fas fa-items"></i> 商品一覧
                <% end %>
-          </li>
-          <li>
+          </td>
+          <td>
              <%= link_to  new_customer_registration_path,class:"nav-link text-light" do %>
             <i class="fas fa-new-customer"></i> 新規登録
              <% end %>
-            </li>
-          <li>
+            </td>
+          <td>
             <%= link_to new_customer_session_path,class:"nav-link text-light" do %>
             <i class="fas fa-sign-out-alt"></i> ログイン
             <% end %>
-            </li>
+            </td>
             <% end %>
+          </tr>
+        </table>
         </ul>
       </div>
     </div>
@@ -103,3 +114,4 @@
   </body>
 </html>
 
+<!--コンテナー-->

@@ -1,42 +1,45 @@
-<h1>○○さんの会員情報編集</h1>
-<p>Find me in app/views/customers/edit.html.erb</p>
+<h1><%= @customer.last_name %>さんの会員情報編集</h1>
 
 <div>
+ <%= form_with model: @customer, url: admin_customer_path(@customer.id), method: :patch do |f| %>
 <table class="table">
-<%= form_with model: @customer, url: admin_customer_path(@customer.id), method: :patch do |f| %>
 <tr>
  <th><label for="inputId">会員ID</label></th>
   <td>1</td>
 </tr>
 <tr>
   <th><label for="inputName">氏名</label></th>
-  <td><%= f.text_field :last_name, autofocus: true, id:"inputName", placeholder:"商品名", size: "40"%></td>
-  <td><%= f.text_field :first_name, autofocus: true, id:"inputName", placeholder:"商品名", size: "40"%></td>
+  <td><%= f.text_field :last_name, autofocus: true, id:"inputName" %></td>
+  <td><%= f.text_field :first_name, autofocus: true, id:"inputName" %></td>
 </tr>
 <tr>
   <th><label for="inputName">フリガナ</label></th>
-  <td><%= f.text_field :last_name_kana, placeholder: "商品説明", size: "50" %></td>
-  <td><%= f.text_field :first_name_kana, placeholder: "商品説明", size: "50" %></td>
+  <td><%= f.text_field :last_name_kana %></td>
+  <td><%= f.text_field :first_name_kana %> </td>
 </tr>
 <tr>
    <th><label for="inputPostal_code">郵便番号</label></th>
-  <td><%= f.text_field :postal_code, placeholder:"郵便番号", size: "50" %></td>
+  <td><%= f.text_field :postal_code, placeholder:"郵便番号" %></td>
 </tr>
 <tr>
- <th> <label for="inputAdress">住所</label></th>
- <td><%= f.text_field :adress, placeholder:"1000" %></td>
+ <th> <label for="inputAddress">住所</label></th>
+ <td><%= f.text_field :address %></td>
 </tr>
-
 <tr>
  <th> <label for="inputTelephone_number">電話番号</label></th>
- <td><%= f.text_field :telephone_number, placeholder:"1000" %></td>
+ <td><%= f.text_field :telephone_number %></td>
 </tr>
-
 <tr>
  <th> <label for="inputTelEmail">メールアドレス</label></th>
- <td><%= f.text_field :email, placeholder:"1000" %></td>
+ <td><%= f.text_field :email %></td>
 </tr>
+<tr>
+ <th> <label for="inputIs_deleted">会員ステータス</label></th>
+ <td><%= f.radio_button :is_deleted, :true %>有効</td>
+ <td><%= f.radio_button :is_deleted, :false %>退会</td>
+ </tr>
   <td><%= f.submit "変更を保存" %></td>
+  </table>
   <% end %>
   </div>
-  </table>
+
